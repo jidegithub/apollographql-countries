@@ -1,15 +1,14 @@
 import { gql } from "@apollo/client";
 import client from "../apollo-client";
-import Head from 'next/head'
-// import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 import { CountriesInterface } from '../types'
+// import Image from 'next/image'
 import Layout from '../components/layout/'
+import styles from '../styles/Home.module.css'
 import CountriesList from "../components/countries-list/CountriesList";
 
 const Home = ({ countries }: CountriesInterface) => {
   return (
-    <Layout title="Static-side">
+    <Layout title="Server-side">
       <main className={styles.main}>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
@@ -20,7 +19,7 @@ const Home = ({ countries }: CountriesInterface) => {
           <code className={styles.code}>pages/index.js</code>
         </p>
 
-        <CountriesList countries={countries}/>
+        <CountriesList countries={countries} />
       </main>
 
       <footer className={styles.footer}>
@@ -39,7 +38,7 @@ const Home = ({ countries }: CountriesInterface) => {
 
 export default Home
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { data } = await client.query({
     query: gql`
       query Countries {

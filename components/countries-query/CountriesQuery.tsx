@@ -1,5 +1,5 @@
 import { useQuery, gql } from "@apollo/client";
-import { CountryInterface } from '../../types/'
+import { CountryInterface } from '../../types'
 import CountriesList from "../countries-list/CountriesList";
 
 const QUERY = gql`
@@ -12,7 +12,7 @@ const QUERY = gql`
   }
 `;
 
-export default function Countries() {
+export default function CountriesQuery() {
   const { data, loading, error } = useQuery(QUERY, {notifyOnNetworkStatusChange: true});
 
   if (loading) {
@@ -24,7 +24,7 @@ export default function Countries() {
     return null;
   }
 
-  const countries: CountryInterface[] = data.countries.slice(0, 6);
+  const countries: CountryInterface[] = data.countries.slice(0, 10);
 
   return <CountriesList countries={countries}/>
 }

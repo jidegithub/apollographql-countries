@@ -27,3 +27,5 @@ svg {
 svg {
   text-rendering: optimizeLegibility;
 }
+
+@import './CountryInfo.css'

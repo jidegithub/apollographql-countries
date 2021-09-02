@@ -1,7 +1,7 @@
 import Layout from '../../components/layout/'
 import styles from "../../styles/Home.module.css";
 import ClientOnly from "../../components/client-only/ClientOnly";
-import Countries from "../../components/countries/Countries";
+import CountriesQuery from "../../components/countries-query/CountriesQuery";
 import SearchBar from '../../components/searchbar/SearchBar';
 import Pagination from '../../components/pagination';
 
@@ -14,7 +14,7 @@ export default function ClientSide() {
         </h1>
         <SearchBar/>
         <ClientOnly>
-          <Countries />
+          <CountriesQuery />
         </ClientOnly>
       </main>
 

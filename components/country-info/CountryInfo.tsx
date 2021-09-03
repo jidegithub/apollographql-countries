@@ -1,10 +1,11 @@
 import React from 'react'
 import Layout from '../layout'
+import { keygen } from '../../utils/keygen'
 
 const Details = ({data}) => {
   let details = data.length ? 
-    data.map((cur, idx) => 
-      <p key={cur.code + idx} className="item">
+    data.map((cur) => 
+      <p key={keygen()} className="item">
         {cur.name}{" "}
       </p>) : <p className="item">Not Available!</p>
       return details;
